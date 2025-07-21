@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const productList = document.getElementById('product-list');
     const searchInput = document.getElementById('searchInput');
-    const loader = document.getElementById('loader'); // เพิ่มบรรทัดนี้
+    const loader = document.getElementById('loader'); 
     let allProducts = [];
 
     // แสดง Loader ก่อน fetch
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('keyup', () => {
         const searchTerm = searchInput.value.toLowerCase();
         const filteredProducts = allProducts.filter(product => {
-            // Simple search, not very efficient
+
             return product.name.toLowerCase().includes(searchTerm);
         });
         displayProducts(filteredProducts);
