@@ -35,11 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Inefficient Search
     searchInput.addEventListener('keyup', () => {
-        const searchTerm = searchInput.value.trim().toLowerCase();
-        if (searchTerm === '') {
-            displayProducts(allProducts);
-            return;
-        }
+        const searchTerm = searchInput.value.toLowerCase();
         const filteredProducts = allProducts.filter(product => {
             // Simple search, not very efficient
             return product.name.toLowerCase().includes(searchTerm);
