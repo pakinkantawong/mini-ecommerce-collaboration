@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const productList = document.getElementById('product-list');
     const searchInput = document.getElementById('searchInput');
+    const loader = document.getElementById('loader'); // เพิ่มบรรทัดนี้
     let allProducts = [];
+
+    // แสดง Loader ก่อน fetch
+    loader.style.display = 'block';
+    productList.style.display = 'none';
 
     // Fetch products from JSON
     fetch('js/products.json')
@@ -9,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             allProducts = data;
             displayProducts(allProducts);
+            // ซ่อน Loader หลังแสดงข้อมูล
+            loader.style.display = 'none';
+            productList.style.display = 'block';
         });
 
     function displayProducts(products) {
